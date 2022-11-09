@@ -36,7 +36,7 @@ namespace Library_Mgt_System
                     Console.WriteLine("You get EF Core Books");
                     break;
                     default:
-                    Console.WriteLine("You can read, right?\nGoodbye");
+                    Console.WriteLine("You can read, right?\nTry again");
                     
                     break;
 
