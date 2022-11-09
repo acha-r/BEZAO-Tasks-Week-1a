@@ -12,6 +12,8 @@ namespace Basic_Authentication
     {
         public class Registration
         {
+            string userName;
+            string password;
             public Registration()
             {
                 Console.WriteLine("Hi newbie, fill in the following");
@@ -21,33 +23,40 @@ namespace Basic_Authentication
                 Console.WriteLine();
 
                 Console.Write("Username:");
-                string userName = Console.ReadLine();
+                userName = Console.ReadLine();
                 Console.WriteLine();
 
                 Console.Write("Set a password:");
-                string password = Console.ReadLine();
+                password = Console.ReadLine();
                 Console.WriteLine();
+
 
             }
 
-        }
-
-        public class LogIn
-        {
-            public LogIn()
+            public void LogIn()
             {
-                Console.WriteLine("You're back");
+                Console.WriteLine("Log in");
 
                 Console.Write("Your username: ");
-                string userName = Console.ReadLine();
-                Console.WriteLine();
+                string lUserName = Console.ReadLine();
+                if (lUserName == userName)
+                {
+                    Console.Write("Password here: ");
+                    string lPassword = Console.ReadLine();
+                    if (lPassword != password)
+                    {
+                        Console.Write("Invalid password. Try again");
+                        Console.WriteLine();
+                        LogIn();
+                    } else Console.WriteLine("That's all");
 
-                Console.Write("Password here: ");
-                string password = Console.ReadLine();
-                Console.WriteLine();
-
+                }
+                
             }
+
+
         }
+
         static void Main()
         {
             Console.WriteLine("Press 1 to register. Press 2 to log in");
@@ -58,18 +67,14 @@ namespace Basic_Authentication
                 if (oneOrTwo == 1)
                 {
                     Registration newUser = new Registration();
-                    Console.WriteLine("Welcome! That's all for now");
+                    Console.WriteLine("Welcome! Log in with your details");
+                    newUser.LogIn();
 
-                }
-                else if (oneOrTwo == 2)
+                } else if (oneOrTwo == 2)
                 {
-                    LogIn existringUser = new LogIn();
-                    Console.WriteLine("Awkward silence");
+                    Console.WriteLine("I'm sorry, this is currently unavailable");
                 }
-                else { 
-                Console.WriteLine("I said ");
-                Main();
-            }
+           
             }
             else Console.WriteLine("I said press 1 OR 2");
         }

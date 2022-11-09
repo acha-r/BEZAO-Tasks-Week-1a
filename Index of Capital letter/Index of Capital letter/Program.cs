@@ -12,7 +12,8 @@ namespace Index_of_Capital_letter
        
         public static int[] CapitalIndex(string userInput)
         {
-            int[] indexOfCapitalLetters = new int[0];
+           int[] indexOfCapitalLetters = new int[userInput.Length];
+          
 
             for (int i = 0; i < userInput.Length; i++)
             {
@@ -21,7 +22,8 @@ namespace Index_of_Capital_letter
                     indexOfCapitalLetters.Append(i);
                 }
             }
-            return (indexOfCapitalLetters);         
+           
+            return indexOfCapitalLetters;         
             
         }
         static void Main()
@@ -30,7 +32,8 @@ namespace Index_of_Capital_letter
 
             string userInput = Console.ReadLine();
 
-            CapitalIndex(userInput); 
+           CapitalIndex(userInput);
+           
            
         }
     }
